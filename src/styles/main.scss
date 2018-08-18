@@ -14,5 +14,7 @@
 @import 'components/footer';
 @import 'components/nav';
 
-// Pages
-@import 'pages/home';
+// General styles
+body {
+  background-color: #fafafa;
+}

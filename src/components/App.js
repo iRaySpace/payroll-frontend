@@ -12,28 +12,18 @@ import Header from './Header';
 export default class App extends Component {
 	constructor(props) {
 		super(props);
-
 		this.store = this.props.store;
 	}
 
 	authenticate(e) {
 		if (e) e.preventDefault();
-
 		this.store.appState.authenticate();
 	}
 
 	render() {
-		const {
-			authenticated,
-			authenticating,
-			timeToRefresh,
-			refreshToken
-		} = this.store.appState;
-
 		return (
-			<div className='wrapper'>
+			<div>
 				<Header location={this.props.routing.location} />
-
 				<Route
 					exact
 					path='/'
@@ -41,7 +31,6 @@ export default class App extends Component {
 						<LazyRoute {...props} component={import('./Home')} />
 					)}
 				/>
-
 				<Route
 					exact
 					path='/member'
@@ -49,7 +38,6 @@ export default class App extends Component {
 						<LazyRoute {...props} component={import('./Member')} />
 					)}
 				/>
-
 				<Route
 					exact
 					path='/login'
@@ -57,8 +45,6 @@ export default class App extends Component {
 						<LazyRoute {...props} component={import('./Login')} />
 					)}
 				/>
-
-				<Footer />
 			</div>
 		);
 	}
